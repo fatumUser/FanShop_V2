@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/css/header.css"/>
+    <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+
+<header class="header">
+    <a href="/main" class="punct-main-page">
+        <div>
+            <p class="text-main-page">Главная страница</p>
+        </div>
+    </a>
+    <a href="/profile" th:text="${user}" style="margin-left: 20px; color: green;"></a>
+    <form class="form-search" action="search" method="post">
+        <input class="input-search" type="text" name="information">
+        <button class="button-search">Найти</button>
+    </form>
+    <div class="header__div-list">
+        <!-- <a href="/registration" class="punct-log">
+            <div>
+              <p class="text-log">Регистрация</p>
+            </div>
+          </a> -->
+        <a href="/login" class="punct-log"
+           onmouseover="logoutDivColor()"
+           onmouseout="logoutDivColorNone()">
+            <div>
+                <div style="display: flex; width: 100%">
+                    <img class="punct__img" src="/img/login.svg" />
+                </div>
+                <p class="text-log" th:text="${user}"></p>
+                <div class="logout" id="logout">
+                    <a href="/logout" style="color: red !important">Выйти</a>
+                </div>
+            </div>
+        </a>
+        <a href="/basket" class="punct-basket">
+            <div class="header__div-list__punct">
+                <div style="display: flex; width: 100%">
+                    <img class="punct__img" src="/img/basket.svg" />
+                </div>
+                <p class="text-basket">Корзина</p>
+            </div>
+        </a>
+    </div>
+</header>
+
+<h1 th:text="${username}"></h1>
+
+<form class="form" action="descProfile" method="post">
+    <input type="text" name="desc" placeholder="Опишите чем вы занимаетесь"/>
+    <button type="submit">Сохранить</button>
+</form>
+
+
+
+</body>
+</html>

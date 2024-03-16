@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Main</title>
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+
+  <body>
+  <header class="header">
+    <a href="/main" class="punct-main-page">
+      <div>
+        <p class="text-main-page">Главная страница</p>
+      </div>
+    </a>
+    <a href="/profile" th:text="${user}" style="margin-left: 20px; color: green;"></a>
+    <form class="form-search" action="search" method="post">
+      <input class="input-search" type="text" name="information">
+      <button class="button-search">Найти</button>
+    </form>
+    <div class="header__div-list">
+      <!-- <a href="/registration" class="punct-log">
+          <div>
+            <p class="text-log">Регистрация</p>
+          </div>
+        </a> -->
+      <a href="/login" class="punct-log"
+         onmouseover="logoutDivColor()"
+         onmouseout="logoutDivColorNone()">
+        <div>
+          <div style="display: flex; width: 100%">
+            <img class="punct__img" src="/img/login.svg" />
+          </div>
+          <p class="text-log" th:text="${user}"></p>
+          <div class="logout" id="logout">
+            <a href="/logout" style="color: red !important">Выйти</a>
+          </div>
+        </div>
+      </a>
+      <a href="/basket" class="punct-basket">
+        <div class="header__div-list__punct">
+          <div style="display: flex; width: 100%">
+            <img class="punct__img" src="/img/basket.svg" />
+          </div>
+          <p class="text-basket">Корзина</p>
+        </div>
+      </a>
+    </div>
+  </header>
+     <section class="section_1">
+       <h1 onclick="testFunction()">Одежда</h1>
+    <section class="line-products">
+    <!--  <div class="product">
+        <a style="text-decoration: none" href="NikeAirMaxBlue">
+          <img
+            alt="Кроссы"
+            src="/img/Nike-SB-Dunk-Green-Blue.jpg"
+            class="img-product"
+          />
+          <p class="product__price">4200 ₽</p>
+          <a href="" class="product__text"> Кроссовки Nike Air max </a>
+        </a>
+      </div> -->
+      <div class="product">
+        <a style="text-decoration: none" href="FudbolkaVetements">
+          <img
+            alt="Кроссы"
+            src="/img/Vetemens_Футболка.jpg"
+            class="img-product"
+          />
+          <p class="product__price">12000 ₽</p>
+          <a href="" class="product__text"> Футболка Vetements </a>
+        </a>
+        <img onclick="LikeClick()" src="/img/like.png" class="like-img">
+      </div>
+      <div class="product">
+        <a style="text-decoration: none" href="BalenciagaKrossovki">
+          <img
+                  alt="Кроссы"
+                  src="/img/BALENCIAGA_krossovki_Drive.jpg"
+                  class="img-product"
+          />
+          <p class="product__price">43000 ₽</p>
+          <a href="" class="product__text">Кроссовки BALENCIAGA</a>
+        </a>
+      </div>
+      <div class="product">
+        <a style="text-decoration: none" href="BurberryFutbolka">
+          <img
+                  alt="Кроссы"
+                  src="/img/BURBERRY_futbolka.jpg"
+                  class="img-product"
+          />
+          <p class="product__price">68000 ₽</p>
+          <a href="" class="product__text">Футболка BURBERRY</a>
+        </a>
+      </div>
+      <div class="product">
+        <a style="text-decoration: none" href="BurberryKedi">
+          <img
+                  alt="Кроссы"
+                  src="/img/BURBERRY_KEDI.jpg"
+                  class="img-product"
+          />
+          <p class="product__price">115000 ₽</p>
+          <a href="" class="product__text">Кеды BURBERRY</a>
+        </a>
+      </div>
+      <div class="product">
+        <a style="text-decoration: none" href="DolceGabbanaFutbolka">
+          <img
+                  alt="Кроссы"
+                  src="/img/DOLCE-GABBANA_futbolka.jpg"
+                  class="img-product"
+          />
+          <p class="product__price">55000 ₽</p>
+          <a href="" class="product__text">Футболка DOLCE-GABBANA</a>
+        </a>
+      </div>
+      <div class="product">
+        <a style="text-decoration: none" href="DolceGabbanaSumka">
+          <img
+                  alt="Кроссы"
+                  src="/img/DOLCE-GABBANA_sumka.jpg"
+                  class="img-product"
+          />
+          <p class="product__price">75000 ₽</p>
+          <a href="" class="product__text">Сумка DOLCE-GABBANA</a>
+        </a>
+      </div>
+      <div class="product">
+        <a style="text-decoration: none" href="DolceGabbanaSwitshot">
+          <img
+                  alt="Кроссы"
+                  src="/img/DOLCE-GABBANA_switshot.jpg"
+                  class="img-product"
+          />
+          <p class="product__price">88000 ₽</p>
+          <a href="" class="product__text">Свитшот DOLCE-GABBANA</a>
+        </a>
+      </div>
+    </section>
+
+      <section class="line-products">
+      <div class="product">
+        <a style="text-decoration: none" href="GucciKedi">
+          <img
+                  alt="Кроссы"
+                  src="/img/GUCCI_kedi_tennis1977.jpg"
+                  class="img-product"
+          />
+          <p class="product__price">95000 ₽</p>
+          <a href="" class="product__text">Кеды GUCCI</a>
+        </a>
+      </div>
+      </section>
+     </section>
+
+  <form action="addAvatar" method="post" enctype="multipart/form-data">
+  <input name="avatar" type="file">
+    <button type="submit">Добавить фото</button>
+  </form>
+
+  <div style="display: flex" th:each="avatar: ${avatars}">
+    <div th:text="${avatar.}">
+      <!-- <p style="margin: 0 auto; font-weight: 700; font-size: 18px">ID</p> -->
+
+    </div>
+  </div>
+
+    <form class="form" action="addMessage" method="post">
+      <input type="text" name="text" />
+      <input type="text" name="tag" />
+      <button type="submit">Добавить сообщение</button>
+    </form>
+  <!--<form class="form" action="transaction" method="post">
+    <button type="submit">Транзакция</button>
+  </form>
+  <form class="form" action="2product" method="post">
+    <button type="submit">Добавить 2 товара</button>
+  </form>-->
+  </body>
+
+  <script src="js/learn.js"></script>
+</html>

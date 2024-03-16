@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="/css/header.css" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <title>Basket</title>
+</head>
+<style></style>
+<body>
+
+<header class="header">
+  <a href="/main" class="punct-main-page">
+    <div>
+      <p class="text-main-page">Главная страница</p>
+    </div>
+  </a>
+  <p th:text="${user}" style="margin-left: 20px; color: green;"></p>
+  <div class="header__div-list">
+    <!-- <a href="/registration" class="punct-log">
+        <div>
+          <p class="text-log">Регистрация</p>
+        </div>
+      </a> -->
+    <a href="/login" class="punct-log">
+      <div>
+        <div style="display: flex; width: 100%">
+          <img class="punct__img" src="/img/login.svg" />
+        </div>
+        <p class="text-log">Войти</p>
+      </div>
+    </a>
+    <a href="/basket" class="punct-basket">
+      <div class="header__div-list__punct">
+        <div style="display: flex; width: 100%">
+          <img class="punct__img" src="/img/basket.svg" />
+        </div>
+        <p class="text-basket">Корзина</p>
+      </div>
+    </a>
+  </div>
+</header>
+
+<div style="display: flex; width: 100%">
+  <section class="line-products">
+    <div th:each="product: ${products}" class="product">
+      <a style="text-decoration: none" href="">
+        <img
+                alt="Кроссы"
+                th:src="${product.img}"
+                class="img-product"
+        />
+        <div style="display: flex">
+          <p class="product__price" th:text="${product.price}"></p>
+          <p class="product__price">₽</p>
+        </div>
+
+        <a href="" class="product__text" th:text="${product.title}">
+          <p th:text="${product.title}"></p>
+        </a>
+      </a>
+    </div>
+  </section>
+
+  <form action="deleteProduct" method="post">
+    <button class="products__buttom-delete">
+      <p>Delete</p>
+    </button>
+  </form>
+
+</div>
+
+<p th:text="${basketPrise}"></p>
+
+<a href="/">
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <form class="mt-4">
+          <div class="btn btn-outline-primary btn-lg btn-block">Перейти к оплате</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</a>
+
+<a href="/main">Главная</a>
+</body>
+</html>

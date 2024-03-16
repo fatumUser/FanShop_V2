@@ -1,0 +1,19 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=asd8bnk11iq64db
+      - MYSQL_DATABASE=docDB
+
+  app:
+    build: ./
+    container_name: "FantomShop"
+    ports:
+      - "8080:8080"
+
+
+

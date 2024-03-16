@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="/css/header.css" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <title>BURBERRY Футболка</title>
+</head>
+<body>
+<header class="header">
+  <a href="/main" class="punct-main-page">
+    <div>
+      <p class="text-main-page">Главная страница</p>
+    </div>
+  </a>
+  <p th:text="${user}" style="margin-left: 20px; color: green;"></p>
+  <div class="header__div-list">
+    <!-- <a href="/registration" class="punct-log">
+        <div>
+          <p class="text-log">Регистрация</p>
+        </div>
+      </a> -->
+    <a href="/login" class="punct-log">
+      <div>
+        <div style="display: flex; width: 100%">
+          <img class="punct__img" src="/img/login.svg" />
+        </div>
+        <p class="text-log">Войти</p>
+      </div>
+    </a>
+    <a href="/basket" class="punct-basket">
+      <div class="header__div-list__punct">
+        <div style="display: flex; width: 100%">
+          <img class="punct__img" src="/img/basket.svg" />
+        </div>
+        <p class="text-basket">Корзина</p>
+      </div>
+    </a>
+  </div>
+</header>
+<div class="product">
+  <a style="text-decoration: none" href="BurberryKedi">
+    <img
+            alt="Кроссы"
+            src="/img/BURBERRY_KEDI.jpg"
+            class="img-product"
+    />
+    <p class="product__price">115000 ₽</p>
+    <a href="" class="product__text">Кеды BURBERRY</a>
+  </a>
+  <form action="BurberryKedi" method="post">
+    <button type="submit" class="button">
+      <p>Добавить в корзину</p>
+    </button>
+  </form>
+</div>
+</body>
+</html>
